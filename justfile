@@ -6,7 +6,7 @@
 # Format the codebase
 @fmt:
     # This command formats all Rust code using the stable rustfmt.
-    cargo fmt --all
+    cargo fmt
     # This command formats all files according to the hawkeye configuration.
     hawkeye format
 
@@ -18,9 +18,9 @@ alias l := lint
     # This command checks the codebase for issues according to the hawkeye configuration.
     hawkeye check
     # This command checks the Rust codebase for errors and warnings.
-    cargo check --locked --all --all-features --all-targets
+    cargo check --locked --all-features --all-targets
     # This command runs clippy to lint the Rust codebase and treats warnings as errors.
-    cargo clippy --locked --all-targets --workspace -- -D warnings
+    cargo clippy --locked --all-targets -- -D warnings
 
 # Calculate lines of code
 @cloc:
@@ -32,5 +32,5 @@ alias t := test
 
 # Run tests
 @test:
-    # This command runs all tests in the workspace using nextest.
-    cargo nextest --locked run --workspace
+    # This command runs all tests using nextest.
+    cargo nextest run --locked --no-tests=pass
